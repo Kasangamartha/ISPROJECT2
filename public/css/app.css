@@ -1,0 +1,39 @@
+/* General layout for the dashboard */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between; /* Space between top (admin), center (message), and bottom (@2024) */
+    position: relative;
+}
+
+/* Admin dashboard styling (top left) */
+.admin-dashboard {
+    align-self: flex-start;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Success message centered on the page */
+.success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Ensures it takes up the middle part of the page */
+    font-size: 24px;
+    color: green;
+}
+
+/* Footer with @2024 fixed at the bottom */
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #f8f9fa; /* Light background */
+    font-size: 16px;
+    font-style: italic;
+    color: #555;
+}
