@@ -5,7 +5,7 @@
 <div class="search-result-container">
     <div class="engine-image">
         <!-- Display the engine image; replace 'engine_image_url' with the actual path to your image -->
-        <img src="{{ asset('images/engine_image.jpg') }}" alt="Engine Image">
+        <img src="{{ asset('images/engine.png') }}" alt="Engine Image">
     </div>
 
     <div class="engine-details-container">

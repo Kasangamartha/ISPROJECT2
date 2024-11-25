@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="role">Register As</label>
                 <select name="role" id="role" required class="form-control">
-                    <option value="1">Admin</option>
+                    <option value="1"></option>
                     <option value="2">Manager</option>
                     <option value="3">Salesperson</option>
                 </select>

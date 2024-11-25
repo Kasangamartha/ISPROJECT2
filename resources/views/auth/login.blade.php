@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="auth-container">
     <div class="form-card">
+    <img src="{{ asset('images/skygo-logo.png') }}" alt="Centered Image" style="height:20%">
         <h2>Welcome back!</h2>
+        
         <h2>Login</h2>
         
         <!-- Display success message if user is logged in -->
@@ -41,7 +44,7 @@
 <!-- Add this CSS for styling -->
 <style>
     body {
-        background-color: #f7f7f7; /* Light background for the page */
+        background-color: grey; /* Light background for the page */
     }
 
     .auth-container {
@@ -49,11 +52,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f7f7f7;
+        background-color: warm blue;
+        margin bottom: 100%;
     }
 
     .form-card {
-        background-color: #fff;
+        background-color: lavender;
         padding: 40px;
         border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);

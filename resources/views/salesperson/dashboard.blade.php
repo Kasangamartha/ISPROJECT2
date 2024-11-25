@@ -10,6 +10,10 @@
         <h3>Hello, welcome back!</h3>
         <h5>In case you mark the wrong engine as sold, kindly see the manager for assistance</h5>
     </div>
+    <div class="engine-image">
+        <!-- Display the engine image; replace 'engine_image_url' with the actual path to your image -->
+        <img src="{{ asset('images/blueengine.png') }}" alt="Engine Image">
+    </div>
 
     <!-- Search Form -->
     <div class="search-container">
@@ -72,7 +76,24 @@
         border-radius: 10px;
         margin-top: 0%;
         background-color: rgba(249, 249, 249, 0.9); ; /* Light background to improve readability */
+        height: 50%;
     }
+       /* Engine Image Styling */
+       .engine-image img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+
+    /* Styling for the details container */
+    .engine-details-container {
+        width: 30%;
+        height: 80%;
+    }
+
 
     /* Style the title in red */
     .title h1 {

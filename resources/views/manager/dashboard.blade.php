@@ -84,24 +84,47 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    const salesChartCtx = document.getElementById('salesChart').getContext('2d');
-    const salesChart = new Chart(salesChartCtx, {
+    // Data for the chart
+    const labels = @json(array_keys($monthlySales)); // Last 6 months as labels
+    const data = @json(array_values($monthlySales)); // Sales data for each month
+
+    // Configure the chart
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Daily Sales', 'Weekly Sales', 'Monthly Sales'],
+            labels: labels,
             datasets: [{
-                label: '# of Engines Sold',
-                data: [{{ $dailySales->count() }}, {{ $weeklySales->count() }}, {{ $monthlySales->count() }}],
-                backgroundColor: ['#4CAF50', '#2196F3', '#FF5722']
+                label: 'Monthly Sales',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
             }]
         },
         options: {
             scales: {
-                y: { beginAtZero: true, max: 16, ticks: { stepSize: 2 } }
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Months'
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Number of Sales'
+                    },
+                    beginAtZero: true, // Ensure it starts at 0
+                    max: 12,           // Set the maximum value to 12
+                    ticks: {
+                        stepSize: 2    // Increment y-axis values by 2
+                    }
+                }
             }
         }
     });
-
+    
     const modelCountChartCtx = document.getElementById('modelCountChart').getContext('2d');
     const modelCountChart = new Chart(modelCountChartCtx, {
         type: 'bar',

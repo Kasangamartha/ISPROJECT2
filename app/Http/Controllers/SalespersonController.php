@@ -11,4 +11,3 @@ class SalespersonController extends Controller
         return view('salesperson.dashboard');
     }
 }
-

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Engine;
 use Illuminate\Http\Request;
+use App\Models\Sale;
 use Illuminate\Support\Facades\Auth;
 
 class EngineController extends Controller
@@ -25,6 +26,32 @@ class EngineController extends Controller
         } else {
             return redirect()->back()->with('status', 'Engine not found.');
         }
+    }
+    public function markAsSold($id)
+    {
+        // Find the engine by its ID or throw a 404 error
+        $engine = Engine::findOrFail($id);
+
+        // Check if the engine is already sold
+        if ($engine->status === 'sold') {
+            return redirect()->back()->with('error', 'Engine is already sold.');
+        }
+
+        // Update the engine status and assign it to the current user
+        $engine->update([
+            'status' => 'sold',
+            'user_id' => auth()->id(),
+        ]);
+
+        // Add a record to the sales table
+        Sale::create([
+            'engine_id' => $engine->id,
+            'date' => now(),
+            'quantity' => 1,
+            'price' => $engine->price,
+        ]);
+
+        return redirect()->back()->with('success', 'Engine marked as sold successfully.');
     }
 
     // Update the status of the engine, record user_id, and insert sale details
